@@ -64,8 +64,8 @@ If you later add assets, place them in a folder such as `assets/` and uncomment 
 ### Screenshots
 
 ```md
-![Screenshot 1](screenshot-1.png)
-![Screenshot 2](screenshot-2.png)
+![Screenshot 1](<img width="1427" height="1165" alt="screenshot-1" src="https://github.com/user-attachments/assets/6ad6598d-9704-4b00-9a15-6935e652a844" />)
+![Screenshot 2](<img width="1428" height="1167" alt="screenshot-2" src="https://github.com/user-attachments/assets/e7c70c9b-80ab-49dd-a6fe-b1a310d8437b" />)
 ```
 
 > Tip: If you do not have images yet, leave these lines removed until you upload your assets.
@@ -296,11 +296,8 @@ Adjust these values:
 Mouse-FX-Pro/
 ├─ README.md
 ├─ script.lua
-└─ assets/
-   ├─ banner.png
-   ├─ preview.gif
-   ├─ screenshot-1.png
-   └─ screenshot-2.png
+├─ screenshot-1.png
+└─ screenshot-2.png
 ```
 
 ---

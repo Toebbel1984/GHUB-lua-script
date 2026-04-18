@@ -61,23 +61,11 @@ The script only reacts while **M-Key 3** is active.
 This README already contains the sections you would usually need for GitHub.  
 If you later add assets, place them in a folder such as `assets/` and uncomment or replace the examples below.
 
-### Banner
-
-```md
-![Mouse FX Pro+ Banner](assets/banner.png)
-```
-
-### Preview GIF
-
-```md
-![Preview](assets/preview.gif)
-```
-
 ### Screenshots
 
 ```md
-![Screenshot 1](assets/screenshot-1.png)
-![Screenshot 2](assets/screenshot-2.png)
+![Screenshot 1](screenshot-1.png)
+![Screenshot 2](screenshot-2.png)
 ```
 
 > Tip: If you do not have images yet, leave these lines removed until you upload your assets.

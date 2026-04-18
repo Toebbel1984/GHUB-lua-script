@@ -56,13 +56,6 @@ The script only reacts while **M-Key 3** is active.
 
 ---
 
-## 🖼️ Banner / Preview / Screenshots
-
-This README already contains the sections you would usually need for GitHub.  
-If you later add assets, place them in a folder such as `assets/` and uncomment or replace the examples below.
-
----
-
 ## 📦 Requirements
 
 - **Windows**

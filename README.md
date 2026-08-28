@@ -4,84 +4,113 @@
   <img alt="Lua" src="https://img.shields.io/badge/Lua-G%20HUB%20Script-2C2D72?style=for-the-badge&logo=lua&logoColor=white">
   <img alt="Platform" src="https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
   <img alt="Logitech G HUB" src="https://img.shields.io/badge/Logitech-G%20HUB-00B8FC?style=for-the-badge">
-  <img alt="Version" src="https://img.shields.io/badge/Version-1.1-red?style=for-the-badge">
+  <img alt="Version" src="https://img.shields.io/badge/Version-1.4-red?style=for-the-badge">
 </p>
 
 <p align="center">
-  <b>Mouse FX Pro+</b> is a Logitech G HUB Lua script with multiple mouse movement modes such as <b>Recoil</b>, <b>Center</b>, <b>Spiral</b>, <b>Infinity</b>, and <b>Circle</b>.<br>
-  Modes are toggled via <b>M-Key 3 + G-keys</b> and executed while holding the <b>left mouse button</b>.
+  <b>Mouse FX Pro+</b> is a Logitech G HUB Lua script with nine configurable mouse movement modes.<br>
+  Select a mode with <b>M2/M3 + G-key</b>, then hold the <b>left mouse button</b> on the corresponding M-key layer to run it.
 </p>
 
 ---
 
 ## 📌 Overview
 
-Mouse FX Pro+ is designed for Logitech G HUB profiles that support Lua scripting, G-keys, and M-key layers.  
-It provides multiple mouse behaviors inside a single script and includes a built-in debug log to show the active mode, recent events, and current cursor position.
+Mouse FX Pro+ combines recoil control, cursor centering, and several geometric movement patterns in one Logitech G HUB script. It is intended for supported Logitech devices with Lua scripting, G-keys, and M-key layers.
 
-This repository is ideal for:
-- experimenting with Lua in Logitech G HUB
-- testing motion patterns and cursor automation
-- learning how to build modular multi-mode G HUB scripts
+The built-in status log shows the current event, M-key layer, active mode, toggle states, and cursor position. This makes the script useful for:
+
+- experimenting with Logitech G HUB's Lua API
+- testing relative and absolute mouse movement
+- tuning configurable motion patterns
+- learning how to structure a multi-mode G HUB script
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 🎯 Recoil | Controlled downward mouse movement with smoothed random jitter |
-| 📍 Center | Forces the cursor to the screen center while the button is held |
-| 🌀 Spiral | Moves the cursor in a spiral that expands and contracts while continuing forward |
-| ♾️ Infinity | Draws a horizontal figure-eight / infinity shape |
-| ⭕ Circle | Moves the cursor in a circular path |
-| 🔒 Exclusive Modes | Only one mode can be active at a time |
-| 🧾 Debug Logging | Shows event, active mode, toggle states, and cursor position in G HUB |
+| Layer | Mode | Behavior |
+|---|---|---|
+| M2 | 🎯 Recoil | Applies downward movement with smoothed random jitter |
+| M2 | 📍 Center | Repeatedly moves the cursor to the virtual screen center |
+| M2 | 🌀 Spiral | Draws a spiral that expands and contracts |
+| M2 | ♾️ Infinity | Draws a horizontal figure-eight |
+| M2 | ⭕ Circle | Draws a circular path |
+| M3 | 🥚 Ellipse | Draws an ellipse with independent horizontal and vertical radii |
+| M3 | 💎 Diamond | Draws a diamond-shaped path |
+| M3 | ❤️ Heart | Draws a parametric heart |
+| M3 | 〰️ Lissajous | Draws a configurable Lissajous curve |
+
+Additional features:
+
+- exclusive mode selection by default
+- sub-pixel remainder tracking for smoother rounded movement
+- configurable speed, size, timing, and shape parameters
+- debug logging in the Logitech G HUB scripting console
 
 ---
 
 ## 🎮 Controls
 
-The script only reacts while **M-Key 3** is active.
+### M2 layer
 
-### Toggle modes
-- **M3 + G1** → Recoil toggle
-- **M3 + G2** → Center toggle
-- **M3 + G3** → Spiral toggle
-- **M3 + G4** → Infinity toggle
-- **M3 + G5** → Circle toggle
+| Shortcut | Action |
+|---|---|
+| **M2 + G1** | Toggle Recoil |
+| **M2 + G2** | Toggle Center |
+| **M2 + G3** | Toggle Spiral |
+| **M2 + G4** | Toggle Infinity |
+| **M2 + G5** | Toggle Circle |
 
-### Execute active mode
-- **Hold Left Click** → runs the currently active mode
+### M3 layer
+
+| Shortcut | Action |
+|---|---|
+| **M3 + G1** | Toggle Ellipse |
+| **M3 + G2** | Toggle Diamond |
+| **M3 + G3** | Toggle Heart |
+| **M3 + G4** | Toggle Lissajous |
+| **M3 + G5** | Not assigned |
+
+### Run a mode
+
+Hold the **left mouse button** while the mode's M-key layer is active:
+
+- M2 runs Recoil, Center, Spiral, Infinity, or Circle
+- M3 runs Ellipse, Diamond, Heart, or Lissajous
+
+With `ExclusiveModes = true`, enabling one mode disables every other mode, including modes on the other layer. Press the same shortcut again to turn the selected mode off.
 
 ---
 
 ## 📦 Requirements
 
-- **Windows**
-- **Logitech G HUB**
-- A supported Logitech device with:
-  - **Lua scripting**
-  - **G-keys**
-  - **M-key switching**
+- Windows
+- Logitech G HUB
+- a supported Logitech device with:
+  - Lua scripting support
+  - G-keys
+  - M-key switching
 
 ---
 
 ## 🚀 Installation
 
-1. Open **Logitech G HUB**
-2. Select the profile you want to use
-3. Open the **Scripting / Lua** editor
-4. Paste the script into the editor
-5. Save the script
-6. Switch to **M-Key 3**
-7. Use **G1–G5** to toggle a mode
+1. Open **Logitech G HUB**.
+2. Select the profile you want to use.
+3. Open the **Scripting / Lua** editor.
+4. Paste the contents of `script.lua` into the editor.
+5. Save the script and activate the profile.
+6. Switch to M2 or M3 and use the controls above to select a mode.
+7. Hold the left mouse button on the corresponding layer to run it.
+
+When the profile is activated, the script enables primary mouse-button events, seeds the random-number generator, clears the log, and reports the loaded version.
 
 ---
 
 ## ⚙️ Configuration
 
-All important values can be adjusted at the top of the script.
+The configurable values are located near the top of `script.lua`.
 
 ### General
 
@@ -90,12 +119,10 @@ local Debug = 1
 local ExclusiveModes = true
 ```
 
-- `Debug = 1` enables G HUB log output
-- `ExclusiveModes = true` ensures only one mode is active at a time
+- `Debug`: set to `1` to enable announcements and status output; use `0` to disable it
+- `ExclusiveModes`: when `true`, only one of the nine modes can be enabled at a time
 
----
-
-## 🎯 Recoil Settings
+### 🎯 Recoil
 
 ```lua
 local RecoilEnabled = 0
@@ -111,29 +138,27 @@ local RecoilSmoothness = 0.65
 local RecoilHorizontalBias = 0
 ```
 
-### Description
-- `RecoilDown` → base downward movement per cycle
-- `RecoilMaxShots` → max number of recoil steps
-- `RecoilSleepDown` / `RecoilSleepRecover` → timing between recoil phases
-- `RecoilRandomMin` / `RecoilRandomMax` → range of random jitter
-- `RecoilSmoothness` → how smooth the jitter transitions are
-- `RecoilHorizontalBias` → shifts jitter left or right
+- `RecoilDown`: downward movement applied during each recoil step
+- `RecoilMaxShots`: maximum number of downward recoil steps per hold
+- `RecoilSleepDown` / `RecoilSleepRecover`: delays between jitter phases in milliseconds
+- `RecoilRandomMin`: minimum vertical jitter target
+- `RecoilRandomMax`: maximum vertical jitter target and horizontal jitter amplitude
+- `RecoilSmoothness`: interpolation strength from `0.0` (wild) to `1.0` (very smooth)
+- `RecoilHorizontalBias`: shifts the horizontal jitter left or right
+- `RecoilBaseOffset`: reserved configuration value; it is not used by the current implementation
 
----
+The smoothed jitter continues until the left mouse button is released, even after `RecoilMaxShots` has been reached.
 
-## 📍 Center Settings
+### 📍 Center
 
 ```lua
 local CenterEnabled = 0
 local CenterSleep = 2
 ```
 
-### Description
-- `CenterSleep` → delay between center-lock operations
+- `CenterSleep`: delay in milliseconds between center operations
 
----
-
-## 🌀 Spiral Settings
+### 🌀 Spiral
 
 ```lua
 local SpiralEnabled = 0
@@ -145,17 +170,14 @@ local SpiralSleep = 4
 local SpiralReturnToCenter = 0
 ```
 
-### Description
-- `SpiralStartRadius` → starting radius of the spiral
-- `SpiralMaxRadius` → maximum spiral radius
-- `SpiralAngleStep` → rotation speed
-- `SpiralRadiusStep` → how fast the spiral expands / contracts
-- `SpiralSleep` → delay between spiral steps
-- `SpiralReturnToCenter` → currently defined in config, but not used by the current implementation
+- `SpiralStartRadius`: minimum radius
+- `SpiralMaxRadius`: maximum radius
+- `SpiralAngleStep`: angular change per movement step
+- `SpiralRadiusStep`: expansion and contraction per movement step
+- `SpiralSleep`: delay between steps in milliseconds
+- `SpiralReturnToCenter`: reserved configuration value; it is not used by the current implementation
 
----
-
-## ♾️ Infinity Settings
+### ♾️ Infinity
 
 ```lua
 local InfinityEnabled = 0
@@ -164,14 +186,11 @@ local InfinityStep = 0.75
 local InfinitySleep = 25
 ```
 
-### Description
-- `InfinitySize` → size of the infinity loop
-- `InfinityStep` → parameter step speed
-- `InfinitySleep` → delay between each movement step
+- `InfinitySize`: overall size of the figure-eight
+- `InfinityStep`: parameter change per movement step
+- `InfinitySleep`: delay between steps in milliseconds
 
----
-
-## ⭕ Circle Settings
+### ⭕ Circle
 
 ```lua
 local CircleEnabled = 0
@@ -180,16 +199,75 @@ local CircleSpeed = 0.85
 local CircleSleep = 10
 ```
 
-### Description
-- `CircleRadius` → circle size
-- `CircleSpeed` → angular speed
-- `CircleSleep` → delay between circle steps
+- `CircleRadius`: circle radius
+- `CircleSpeed`: angular change per movement step
+- `CircleSleep`: delay between steps in milliseconds
+
+### 🥚 Ellipse
+
+```lua
+local EllipseEnabled = 0
+local EllipseRadiusX = 90
+local EllipseRadiusY = 45
+local EllipseStep = 0.18
+local EllipseSleep = 3
+```
+
+- `EllipseRadiusX` / `EllipseRadiusY`: horizontal and vertical radii
+- `EllipseStep`: parameter change per movement step
+- `EllipseSleep`: delay between steps in milliseconds
+
+### 💎 Diamond
+
+```lua
+local DiamondEnabled = 0
+local DiamondSize = 175
+local DiamondStep = 0.14
+local DiamondSleep = 6
+```
+
+- `DiamondSize`: overall size of the diamond
+- `DiamondStep`: parameter change per movement step
+- `DiamondSleep`: delay between steps in milliseconds
+
+### ❤️ Heart
+
+```lua
+local HeartEnabled = 0
+local HeartScale = 25
+local HeartStep = 0.13
+local HeartSleep = 7
+```
+
+- `HeartScale`: scale applied to the heart curve
+- `HeartStep`: parameter change per movement step
+- `HeartSleep`: delay between steps in milliseconds
+
+### 〰️ Lissajous
+
+```lua
+local LissajousEnabled = 0
+local LissajousRadiusX = 90
+local LissajousRadiusY = 125
+local LissajousFrequencyX = 3
+local LissajousFrequencyY = 2
+local LissajousPhase = math.pi / 2
+local LissajousStep = 0.12
+local LissajousSleep = 6
+```
+
+- `LissajousRadiusX` / `LissajousRadiusY`: horizontal and vertical amplitudes
+- `LissajousFrequencyX` / `LissajousFrequencyY`: frequency ratio that determines the curve
+- `LissajousPhase`: horizontal phase offset in radians
+- `LissajousStep`: parameter change per movement step
+- `LissajousSleep`: delay between steps in milliseconds
 
 ---
 
-## 🧠 Included Functions
+## 🧠 Script Structure
 
-### Helper Functions
+### Helper functions
+
 - `Clamp(v, minV, maxV)`
 - `Toggle(v)`
 - `BoolText(v)`
@@ -201,76 +279,92 @@ local CircleSleep = 10
 - `Lerp(a, b, t)`
 - `Announce(text)`
 - `LogStatus(event, arg)`
+- `ResetRecoilJitter()`
+- `GetSmoothJitter()`
+- `RunParametricMouse(step, sleepMs, pointFunction)`
 
-### Motion Functions
-- `CircleMouse()`
-- `SpiralMouse()`
-- `InfinityMouse()`
+`RunParametricMouse` provides the shared movement loop used by Ellipse, Diamond, Heart, and Lissajous.
+
+### Motion functions
+
 - `DoRecoil()`
 - `ForceCenterMouse()`
+- `SpiralMouse()`
+- `InfinityMouse()`
+- `CircleMouse()`
+- `EllipseMouse()`
+- `DiamondMouse()`
+- `HeartMouse()`
+- `LissajousMouse()`
 
-### Toggle Functions
-- `ToggleCircle()`
+### Toggle functions
+
 - `ToggleRecoil()`
 - `ToggleCenter()`
 - `ToggleSpiral()`
 - `ToggleInfinity()`
+- `ToggleCircle()`
+- `ToggleEllipse()`
+- `ToggleDiamond()`
+- `ToggleHeart()`
+- `ToggleLissajous()`
 
 ---
 
 ## 🧾 Debug Logging
 
-When `Debug = 1`, the script writes a formatted status box to the G HUB log.
+When `Debug = 1`, the G HUB scripting console displays a formatted status box containing:
 
-It includes:
-- current event
-- current argument
-- active M-key
+- script name and version
+- current event and argument
+- active M-key layer
 - active mode
-- state of all modes
-- cursor position
+- state of all nine modes
+- current cursor position
 
-This is useful for tuning timing, troubleshooting input, and confirming whether the correct mode is active.
+The log is refreshed after handled events. Status-box output is skipped while M1 is active.
 
 ---
 
 ## 🛠️ Troubleshooting
 
-### Script does not react
-- make sure **Lua scripting** is enabled in G HUB
-- make sure the correct **profile** is selected
-- make sure **M-Key 3** is active
-- confirm your device supports **G-keys / M-key switching**
+### The script does not react
 
-### Movement is too fast or too slow
-- adjust the `Sleep` values
-- reduce or increase `Step`, `Speed`, or `RadiusStep`
+- verify that Lua scripting is enabled in G HUB
+- verify that the correct profile is active
+- use M2 for the five M2 modes and M3 for the four M3 modes
+- confirm that the device supports G-keys and M-key switching
+- check the G HUB script log for the loaded version and event details
+
+### A mode is enabled but does not run
+
+The selected M-key layer must still be active when you press and hold the left mouse button. For example, Ellipse is toggled and executed on M3, while Circle is toggled and executed on M2.
+
+### Movement is too fast, slow, large, or small
+
+- increase a mode's `Sleep` value to slow down its updates
+- decrease `Sleep` to update more quickly
+- adjust `Step`, `Speed`, `Radius`, `Size`, or `Scale` to tune the pattern
 
 ### Recoil feels too weak or too strong
-Adjust these values:
-- `RecoilDown`
-- `RecoilRandomMin`
-- `RecoilRandomMax`
-- `RecoilSmoothness`
-- `RecoilHorizontalBias`
+
+Adjust `RecoilDown`, the random range, smoothing, timing, or horizontal bias. DPI, polling rate, Windows sensitivity, and application sensitivity also affect the result.
 
 ### Motion looks jittery or drifts
-- reduce radius or step values
-- increase sleep slightly
-- lower movement speed for smoother motion
+
+- reduce the relevant step or size values
+- increase the mode's sleep value slightly
+- test with a different DPI or pointer-sensitivity setting
 
 ---
 
 ## ⚠️ Notes
 
-- The script is designed around **M-Key 3**
-- With `ExclusiveModes = true`, enabling one mode disables the others
-- Mouse behavior depends on:
-  - DPI
-  - polling rate
-  - Windows sensitivity
-  - in-game sensitivity
-- `Center` uses `MoveMouseTo(32767, 32767)`, which corresponds to the virtual absolute center target used by G HUB
+- All pattern modes use relative movement and begin around the cursor's current position.
+- Center uses `MoveMouseTo(32767, 32767)`, the midpoint of G HUB's absolute `0`–`65535` coordinate range.
+- Mode output varies with DPI, polling rate, Windows pointer settings, and the active application's sensitivity.
+- The script stops the current movement loop when the left mouse button is released.
+- `Clamp`, `Toggle`, `SafeRandom`, `RecoilBaseOffset`, and `SpiralReturnToCenter` are present but not used by the current runtime path.
 
 ---
 
@@ -279,27 +373,25 @@ Adjust these values:
 ```text
 Mouse-FX-Pro/
 ├─ README.md
-├─ script.lua
-├─ screenshot-1.png
-└─ screenshot-2.png
+└─ script.lua
 ```
 
 ---
 
 ## ⚠️ Disclaimer
 
-This project is provided for **learning, testing, and automation experiments** inside Logitech G HUB Lua.
+This project is provided for learning, testing, and automation experiments in Logitech G HUB.
 
-Use it at your own risk. Always follow the terms, rules, and policies of the software, platforms, and games you use.
+Use it at your own risk and follow the terms, rules, and policies of the software, platforms, and games where you use it.
 
 ---
 
 ## 📌 Version
 
-**Mouse FX Pro+ v1.1**
+**Mouse FX Pro+ v1.4**
 
 ---
 
 ## ⭐ Support
 
-If you like the script, consider giving the repository a **star**.
+If you find the project useful, consider giving the repository a star.
